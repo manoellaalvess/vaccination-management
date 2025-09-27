@@ -1,10 +1,10 @@
+using VaccinationManagement.Domain.Entity;
+
 namespace VaccinationManagement.Domain.Repository
 {
     public interface IVaccineRepository
     {
-        // Task<Person> GetByCpf(string cpf);
-        // Task AddAsync(Person person);
-        // Task DeleteAsync(string cpf);
-        // Task SaveChangesAsync();
+        Task CreateVaccine(Vaccine vaccine);
+        Task<List<Vaccine>> GetAllAsync();
     }
 }

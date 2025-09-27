@@ -28,7 +28,6 @@ namespace VaccinationManagement.Api.Controllers
 
         #region Actions
 
-
         /// <summary>
         /// Creates new Person
         /// </summary>
