@@ -1,0 +1,29 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# SQLite Database
+*.db
+*.db-shm
+*.db-wal
+
+# Entity Framework
+#migrations/   # <- descomente se NÃO quiser versionar migrations

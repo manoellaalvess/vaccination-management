@@ -174,3 +174,4 @@ C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationMan
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Api\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Api\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Api\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Api\obj\Debug\net9.0\VaccinationManagement.Api.sourcelink.json

@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using VaccinationManagement.Application.Command.CreatePerson;
-using Microsoft.AspNetCore.Http;
+using VaccinationManagement.Application.Command.DeletePerson;
+using VaccinationManagement.Application.Queries.GetAllPeople;
 
 namespace VaccinationManagement.Api.Controllers
 {
@@ -27,13 +28,17 @@ namespace VaccinationManagement.Api.Controllers
 
         #region Actions
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
-        {
-            // aqui futuramente chamar mediator
-            return Ok(new { Id = id, Name = "Fulano" });
-        }
 
+        /// <summary>
+        /// Creates new Person
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// {
+        ///   "cpf": "11122233344",
+        ///   "name": "Fulano de Tal"
+        /// }
+        /// </remarks>
         [HttpPost]
         [Route("/CreatePerson")]
         [ProducesResponseType(typeof(CreatePersonResponse), StatusCodes.Status200OK)]
@@ -45,6 +50,41 @@ namespace VaccinationManagement.Api.Controllers
             var response = await Mediator.Send(request);
 
             return Ok(new { message = "Person created successfully.", data = response });
+        }
+
+        /// <summary>
+        /// Delete a Person
+        /// </summary>
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(DeletePersonResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status406NotAcceptable)]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
+        public async Task<IActionResult> DeletePerson(string id, CancellationToken cancellationToken)
+        {
+            var request = new DeletePersonRequest { Cpf = id };
+
+            var response = await Mediator.Send(request);
+
+            return Ok(new { message = "Person removed successfully.", data = response });
+        }
+
+        /// <summary>
+        /// Get all people
+        /// </summary>
+        [HttpGet]
+        [Route("GetAllPeople")]
+        [ProducesResponseType(typeof(GetAllPeopleResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status406NotAcceptable)]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
+        public async Task<IActionResult> GetAllPeople([FromRoute] GetAllPeopleRequest request, CancellationToken cancellationToken)
+        {
+            var response = await Mediator.Send(request, cancellationToken);
+
+            return Ok(new { message = response.People.Any() ? "People retrieved successfully." : "No person found.", data = response });
         }
 
         #endregion

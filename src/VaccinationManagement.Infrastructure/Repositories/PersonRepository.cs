@@ -34,24 +34,27 @@ namespace VaccinationManagement.Infrastructure.Repositories
             return;
         }
 
-        public Task AddAsync(Person person)
+        public async Task DeletePerson(string cpf)
         {
-            throw new NotImplementedException();
+            var person = await GetByCpfAsync(cpf);
+            if (person != null)
+            {
+                Context.People.Remove(person);
+                await Context.SaveChangesAsync();
+            }
         }
 
-        public Task DeleteAsync(string cpf)
+        public async Task<Person?> GetByCpfAsync(string cpf)
         {
-            throw new NotImplementedException();
+            return await Context.People
+                .Include(p => p.Vaccinations).FirstOrDefaultAsync(p => p.Cpf == cpf);
         }
 
-        public Task<Person> GetByCpf(string cpf)
+        public async Task<List<Person>> GetAllAsync()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task SaveChangesAsync()
-        {
-            throw new NotImplementedException();
+            return await Context.People
+                .Include(p => p.Vaccinations)
+                .ToListAsync();
         }
 
         #endregion
