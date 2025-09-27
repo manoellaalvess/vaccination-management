@@ -1,0 +1,11 @@
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\bin\Debug\net9.0\VaccinationManagement.Domain.deps.json
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\bin\Debug\net9.0\VaccinationManagement.Domain.dll
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\bin\Debug\net9.0\VaccinationManagement.Domain.pdb
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\VaccinationManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\VaccinationManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\VaccinationManagement.Domain.AssemblyInfo.cs
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\VaccinationManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\VaccinationManagement.Domain.dll
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\refint\VaccinationManagement.Domain.dll
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\VaccinationManagement.Domain.pdb
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Domain\obj\Debug\net9.0\ref\VaccinationManagement.Domain.dll

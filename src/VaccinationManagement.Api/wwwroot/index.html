@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    body{margin:24px;background:#f8f9fb}
+    h1{margin-top:0}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px}
+    .row{display:flex;gap:8px;flex-wrap:wrap}
+    input,button{padding:10px 12px;border:1px solid #d1d5db;border-radius:8px}
+    button{background:#111827;color:#fff;cursor:pointer}
+    .secondary{background:#6b7280}
+    label{font-size:12px;color:#374151;display:block;margin-bottom:6px}
+    .muted{color:#6b7280;font-size:13px}
+    pre{background:#0b1020;color:#e5e7eb;padding:12px;border-radius:8px;overflow:auto;max-height:240px}
+    .list{display:grid;gap:6px}
+    .pill{display:inline-flex;gap:6px;align-items:center;padding:4px 8px;border:1px solid #d1d5db;border-radius:999px;background:#f3f4f6;font-size:12px}
+  </style>
+</head>
+<body>
+  <h1>Vaccination Management</h1>
+  <p class="muted">Use esta página para testar a API. A documentação está em <a href="/swagger">/swagger</a>.</p>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Pessoa</h2>
+      <div class="row">
+        <div style="align-self:end"><button id="p_create">Criar pessoa</button></div>
+        <div style="align-self:end"><button id="p_create">Excluir pessoa</button></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Vacinas</h2>
+      <!-- <div class="row">
+        <div><label>Nome</label><input id="v_name" placeholder="Hepatite B"/></div>
+        <div><label>Doses (opcional)</label><input id="v_doses" type="number" min="1" placeholder="3"/></div>
+        <div style="align-self:end"><button id="v_create">Criar</button></div>
+        <div style="align-self:end"><button class="secondary" id="v_list">Listar</button></div>
+      </div>
+      <div style="margin-top:10px"><label>Vacinas</label><div id="v_list_container" class="list"></div></div>
+      <pre id="v_out"></pre> -->
+    </section>
+
+    <section class="card">
+      <h2>Registrar vacinação</h2>
+      <!-- <div class="row">
+        <div style="min-width:240px"><label>PersonId</label><input id="r_personId" placeholder="GUID"/></div>
+        <div style="min-width:240px"><label>VaccineId</label><input id="r_vaccineId" placeholder="GUID"/></div>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <div><label>Dose</label><input id="r_dose" type="number" min="1" placeholder="1"/></div>
+        <div><label>Data</label><input id="r_date" type="date"/></div>
+        <div style="align-self:end"><button id="r_create">Registrar</button></div>
+      </div>
+      <pre id="r_out"></pre> -->
+    </section>
+
+    <section class="card">
+      <h2>Cartão de vacinação</h2>
+      <!-- <div class="row">
+        <div style="min-width:240px"><label>PersonId</label><input id="c_personId" placeholder="GUID"/></div>
+        <div style="align-self:end"><button id="c_load">Carregar cartão</button></div>
+      </div>
+      <div id="card_grid" class="list" style="margin-top:12px"></div>
+      <pre id="card_raw"></pre> -->
+    </section>
+  </div>
+
+  <!-- <script>
+    const $ = id => document.getElementById(id);
+    const setText = (id, obj) => $(id).textContent = typeof obj === 'string' ? obj : JSON.stringify(obj,null,2);
+    async function postJson(url, body) {
+      const r = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+      const txt = await r.text(); try { return { ok:r.ok, status:r.status, json: JSON.parse(txt) }; } catch { return { ok:r.ok, status:r.status, text: txt }; }
+    }
+    async function del(url) { const r = await fetch(url, { method:'DELETE' }); return { ok:r.ok, status:r.status, text: await r.text() }; }
+
+    $('p_create').onclick = async () => {
+      const res = await postJson('/api/persons', { name: $('p_name').value, document: $('p_doc').value });
+      setText('p_out', res);
+      const id = res.json?.id ?? res.json?.Id;
+      if (res.ok && id) { $('personId').value=id; $('r_personId').value=id; $('c_personId').value=id; $('p_hint').textContent='PersonId preenchido.'; }
+    };
+
+    $('v_create').onclick = async () => {
+      const doses = $('v_doses').value ? parseInt($('v_doses').value, 10) : null;
+      const res = await postJson('/api/vaccines', { name: $('v_name').value, requiredDoses: doses });
+      setText('v_out', res); await loadVaccines();
+    };
+    $('v_list').onclick = loadVaccines;
+    async function loadVaccines() {
+      const r = await fetch('/api/vaccines');
+      const list = r.ok ? await r.json() : [];
+      const c = $('v_list_container'); c.innerHTML = '';
+      list.forEach(v => {
+        const div = document.createElement('div'); div.className='pill';
+        div.innerHTML = `<strong>${v.name}</strong> <span class="muted">${v.id}</span> ${v.requiredDoses ? '• '+v.requiredDoses+' doses' : ''}`;
+        div.onclick = () => { $('r_vaccineId').value = v.id; };
+        c.appendChild(div);
+      });
+      setText('v_out', list);
+    } loadVaccines();
+
+    $('r_create').onclick = async () => {
+      const body = { vaccineId: $('r_vaccineId').value, doseNumber: parseInt($('r_dose').value, 10), applicationDate: $('r_date').value };
+      const res = await postJson(`/api/persons/${$('r_personId').value}/vaccinations`, body);
+      setText('r_out', res);
+    };
+
+    $('c_load').onclick = loadCard;
+    async function loadCard() {
+      const pid = $('c_personId').value;
+      const r = await fetch(`/api/persons/${pid}/card`);
+      if (!r.ok) { setText('card_raw', await r.text()); $('card_grid').innerHTML=''; return; }
+      const data = await r.json(); setText('card_raw', data);
+      const g = $('card_grid'); g.innerHTML='';
+      if (!data.vaccinations || data.vaccinations.length===0){ g.innerHTML='<div class="muted">Nenhum registro.</div>'; return; }
+      data.vaccinations.forEach(rec => {
+        const item=document.createElement('div'); item.className='card';
+        item.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+          <div><div><strong>${rec.vaccineName}</strong></div>
+          <div class="muted">Dose ${rec.doseNumber} • ${rec.applicationDate}</div>
+          <div class="muted" style="font-size:12px">RecordId: ${rec.recordId}</div></div>
+          <div><button class="secondary" data-record="${rec.recordId}">Excluir</button></div></div>`;
+        item.querySelector('button').onclick = async (e) => {
+          const recordId = e.currentTarget.getAttribute('data-record');
+          const d = await del(`/api/persons/${pid}/vaccinations/${recordId}`);
+          if (d.ok) loadCard(); else alert('Falha ao excluir: '+d.status);
+        };
+        g.appendChild(item);
+      });
+    }
+  </script> -->
+</body>
+</html>
