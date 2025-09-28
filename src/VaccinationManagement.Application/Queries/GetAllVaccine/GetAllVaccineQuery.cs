@@ -1,4 +1,5 @@
 using MediatR;
+using VaccinationManagement.Domain.DTO;
 using VaccinationManagement.Domain.Repository;
 
 namespace VaccinationManagement.Application.Queries.GetAllVaccine
@@ -26,7 +27,13 @@ namespace VaccinationManagement.Application.Queries.GetAllVaccine
         {
             var vaccines = await VaccineRepository.GetAllAsync();
 
-            return new GetAllVaccineResponse { Vaccines = vaccines};
+            var result = vaccines.Select(v => new VaccineDto
+            {
+                VaccineId = v.VaccineId,
+                VaccineName = v.VaccineName
+            }).ToList();
+
+            return new GetAllVaccineResponse { Vaccines = result };
         }
 
         #endregion

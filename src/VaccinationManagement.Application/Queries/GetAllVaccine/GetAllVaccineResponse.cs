@@ -1,9 +1,9 @@
-using VaccinationManagement.Domain.Entity;
+using VaccinationManagement.Domain.DTO;
 
 namespace VaccinationManagement.Application.Queries.GetAllVaccine
 {
     public class GetAllVaccineResponse
     {
-        public List<Vaccine> Vaccines { get; set; }
+        public List<VaccineDto> Vaccines { get; set; }
     }
 }
