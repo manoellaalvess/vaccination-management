@@ -11,7 +11,7 @@ using VaccinationManagement.Infrastructure;
 namespace VaccinationManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(VaccinationDbContext))]
-    [Migration("20250927235030_InitialCreate")]
+    [Migration("20250928010334_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -55,6 +55,10 @@ namespace VaccinationManagement.Infrastructure.Migrations
 
                     b.Property<int>("VaccineId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("VaccineName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("VaccinationId");
 

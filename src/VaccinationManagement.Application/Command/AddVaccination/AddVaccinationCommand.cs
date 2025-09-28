@@ -46,7 +46,7 @@ namespace VaccinationManagement.Application.Command.AddVaccination
             if (request.Dose != vaccinations.Count + 1)
                 return new AddVaccinationResponse { Success = false, Message = "Invalid dose order" };
 
-            var vaccination = AddVaccinationAdapter.BuildToVaccination(request);
+            var vaccination = AddVaccinationAdapter.BuildToVaccination(request, vaccine.VaccineName);
 
             await VaccinationRepository.AddVaccination(vaccination);
 

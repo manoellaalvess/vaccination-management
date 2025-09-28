@@ -44,6 +44,7 @@ namespace VaccinationManagement.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     PersonCpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
                     VaccineId = table.Column<int>(type: "INTEGER", nullable: false),
+                    VaccineName = table.Column<string>(type: "TEXT", nullable: false),
                     VaccinationDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Dose = table.Column<int>(type: "INTEGER", nullable: false)
                 },

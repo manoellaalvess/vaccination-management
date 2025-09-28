@@ -1,4 +1,5 @@
 using MediatR;
+using VaccinationManagement.Domain.DTO;
 using VaccinationManagement.Domain.Repository;
 
 namespace VaccinationManagement.Application.Queries.GetAllPeople
@@ -23,8 +24,21 @@ namespace VaccinationManagement.Application.Queries.GetAllPeople
         public async Task<GetAllPeopleResponse> Handle(GetAllPeopleRequest request, CancellationToken cancellationToken)
         {
             var people = await PersonRepository.GetAllAsync();
-            
-            return new GetAllPeopleResponse { People = people };
+
+            var result = people.Select(p => new PersonDto
+            {
+                Cpf = p.Cpf,
+                Name = p.Name,
+                Vaccinations = p.Vaccinations?.Select(v => new VaccinationDto
+                {
+                    VaccineId = v.VaccineId,
+                    VaccineName = v.VaccineName,
+                    Dose = v.Dose,
+                    ApplicationDate = v.VaccinationDate.ToString("dd-MM-yyyy")
+                }).ToList() ?? new List<VaccinationDto>()
+            }).ToList();
+
+            return new GetAllPeopleResponse { People = result };
         }
     }
 }

@@ -18,6 +18,9 @@ namespace VaccinationManagement.Infrastructure.Configurations
 
             builder.Property(v => v.VaccineId)
                    .IsRequired();
+                   
+            builder.Property(v => v.VaccineId)
+                   .IsRequired();
 
             builder.Property(v => v.VaccinationDate)
                    .IsRequired();

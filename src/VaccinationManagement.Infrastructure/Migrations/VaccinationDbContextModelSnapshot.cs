@@ -53,6 +53,10 @@ namespace VaccinationManagement.Infrastructure.Migrations
                     b.Property<int>("VaccineId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("VaccineName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("VaccinationId");
 
                     b.HasIndex("PersonCpf");
