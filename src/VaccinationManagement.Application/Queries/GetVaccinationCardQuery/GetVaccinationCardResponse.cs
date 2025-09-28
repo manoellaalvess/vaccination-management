@@ -1,8 +1,8 @@
 using VaccinationManagement.Domain.DTO;
 
-namespace VaccinationManagement.Application.Queries.GetByCpf
+namespace VaccinationManagement.Application.Queries.GetVaccinationCard
 {
-    public class GetByCpfResponse
+    public class GetVaccinationCardResponse
     {
         public string Message { get; set; }
         public bool Success { get; set; }

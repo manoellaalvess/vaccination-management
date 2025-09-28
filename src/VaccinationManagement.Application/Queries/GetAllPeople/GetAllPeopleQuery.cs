@@ -31,6 +31,7 @@ namespace VaccinationManagement.Application.Queries.GetAllPeople
                 Name = p.Name,
                 Vaccinations = p.Vaccinations?.Select(v => new VaccinationDto
                 {
+                    VaccinationId = v.VaccinationId,
                     VaccineId = v.VaccineId,
                     VaccineName = v.VaccineName,
                     Dose = v.Dose,

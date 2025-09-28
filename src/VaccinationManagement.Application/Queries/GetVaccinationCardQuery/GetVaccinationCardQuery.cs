@@ -2,9 +2,9 @@ using MediatR;
 using VaccinationManagement.Domain.DTO;
 using VaccinationManagement.Domain.Repository;
 
-namespace VaccinationManagement.Application.Queries.GetByCpf
+namespace VaccinationManagement.Application.Queries.GetVaccinationCard
 {
-    public class GetByCpfQuery : IRequestHandler<GetByCpfRequest, GetByCpfResponse>
+    public class GetVaccinationCardQuery : IRequestHandler<GetVaccinationCardRequest, GetVaccinationCardResponse>
     {
         #region Properties
 
@@ -14,7 +14,7 @@ namespace VaccinationManagement.Application.Queries.GetByCpf
 
         #region Constructor
 
-        public GetByCpfQuery(IPersonRepository personRepository)
+        public GetVaccinationCardQuery(IPersonRepository personRepository)
         {
             PersonRepository = personRepository;
         }
@@ -23,13 +23,13 @@ namespace VaccinationManagement.Application.Queries.GetByCpf
 
         #region Public Methods
 
-        public async Task<GetByCpfResponse> Handle(GetByCpfRequest request, CancellationToken cancellationToken)
+        public async Task<GetVaccinationCardResponse> Handle(GetVaccinationCardRequest request, CancellationToken cancellationToken)
         {
             var person = await PersonRepository.GetByCpfAsync(request.Cpf);
 
             if (person == null)
             {
-                return new GetByCpfResponse
+                return new GetVaccinationCardResponse
                 {
                     Message = "Person not found.",
                     Success = false,
@@ -37,7 +37,7 @@ namespace VaccinationManagement.Application.Queries.GetByCpf
                 };
             }
 
-            var result = GetByCpfAdapter.Adapt(person);
+            var result = GetVaccinationCardAdapter.Adapt(person);
 
             return result;
         }

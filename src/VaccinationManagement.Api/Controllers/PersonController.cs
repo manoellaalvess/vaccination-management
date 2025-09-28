@@ -91,13 +91,13 @@ namespace VaccinationManagement.Api.Controllers
         /// Get person by cpf
         /// </summary>
         [HttpGet]
-        [Route("{cpf}")]
+        [Route("{cpf}/vaccination-card")]
         [ProducesResponseType(typeof(GetByCpfResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status406NotAcceptable)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        public async Task<IActionResult> GetByCpf(string cpf, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetVaccinationCard(string cpf, CancellationToken cancellationToken)
         {
             var request = new GetByCpfRequest { Cpf = cpf };
 
