@@ -6,5 +6,6 @@ namespace VaccinationManagement.Domain.Repository
     {
         Task CreateVaccine(Vaccine vaccine);
         Task<List<Vaccine>> GetAllAsync();
+        Task<Vaccine> GetByVaccineId(int vaccineId);
     }
 }

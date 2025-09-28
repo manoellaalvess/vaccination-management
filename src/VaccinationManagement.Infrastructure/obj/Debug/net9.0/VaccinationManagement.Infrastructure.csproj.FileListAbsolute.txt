@@ -9,10 +9,10 @@ C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationMan
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.AssemblyInfo.cs
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.sourcelink.json
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\Vaccinat.6D3C7840.Up2Date
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.dll
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\refint\VaccinationManagement.Infrastructure.dll
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.pdb
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.genruntimeconfig.cache
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\ref\VaccinationManagement.Infrastructure.dll
-C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.Infrastructure\obj\Debug\net9.0\VaccinationManagement.Infrastructure.sourcelink.json

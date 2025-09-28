@@ -37,6 +37,11 @@ namespace VaccinationManagement.Infrastructure.Repositories
             return await Context.Vaccines.ToListAsync();
         }
 
+        public async Task<Vaccine> GetByVaccineId(int vaccineId)
+        {
+            return await Context.Vaccines.FirstOrDefaultAsync(v => v.VaccineId == vaccineId);
+        }
+
         #endregion
     }
 }

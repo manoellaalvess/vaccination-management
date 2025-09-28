@@ -10,9 +10,9 @@ C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationMan
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\VaccinationManagement.CrossCutting.AssemblyInfoInputs.cache
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\VaccinationManagement.CrossCutting.AssemblyInfo.cs
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\VaccinationManagement.CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\VaccinationManagement.CrossCutting.sourcelink.json
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\Vaccinat.7BC2DDFE.Up2Date
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\VaccinationManagement.CrossCutting.dll
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\refint\VaccinationManagement.CrossCutting.dll
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\VaccinationManagement.CrossCutting.pdb
 C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\ref\VaccinationManagement.CrossCutting.dll
-C:\Users\m.alves.de.oliveira\Downloads\vaccination-management\src\VaccinationManagement.CrossCutting\obj\Debug\net9.0\VaccinationManagement.CrossCutting.sourcelink.json

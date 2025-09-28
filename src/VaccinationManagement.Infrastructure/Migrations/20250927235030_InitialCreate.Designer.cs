@@ -11,7 +11,7 @@ using VaccinationManagement.Infrastructure;
 namespace VaccinationManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(VaccinationDbContext))]
-    [Migration("20250927015527_InitialCreate")]
+    [Migration("20250927235030_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

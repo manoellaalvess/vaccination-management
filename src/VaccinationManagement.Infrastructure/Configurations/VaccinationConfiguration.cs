@@ -24,6 +24,18 @@ namespace VaccinationManagement.Infrastructure.Configurations
 
             builder.Property(v => v.Dose)
                    .IsRequired();
+
+            // Relationship: Vaccination -> Person (N:1)
+            builder.HasOne(v => v.Person)
+                .WithMany(p => p.Vaccinations)
+                .HasForeignKey(v => v.PersonCpf)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Relationship: Vaccination -> Vaccine (N:1)
+            builder.HasOne(v => v.Vaccine)
+                .WithMany(vac => vac.Vaccinations)
+                .HasForeignKey(v => v.VaccineId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

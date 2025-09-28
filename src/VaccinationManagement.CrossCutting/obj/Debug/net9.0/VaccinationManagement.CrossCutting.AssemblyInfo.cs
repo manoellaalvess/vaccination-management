@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VaccinationManagement.CrossCutting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ed553502837e7401f49114ea935964812186dab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d19228ce3e193e4a0575c69b405b1e0c9c6cdb66")]
 [assembly: System.Reflection.AssemblyProductAttribute("VaccinationManagement.CrossCutting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VaccinationManagement.CrossCutting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
