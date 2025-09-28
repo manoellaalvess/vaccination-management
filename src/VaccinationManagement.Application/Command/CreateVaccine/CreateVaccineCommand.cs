@@ -24,14 +24,27 @@ namespace VaccinationManagement.Application.Command.CreateVaccine
 
         public async Task<CreateVaccineResponse> Handle(CreateVaccineRequest request, CancellationToken cancellationToken)
         {
-            var vaccine = CreateVaccineAdapter.BuildToVaccine(request);
-
-            await VaccineRepository.CreateVaccine(vaccine);
-
-            return new CreateVaccineResponse
+            try
             {
-                VaccineName = vaccine.VaccineName,
-            };
+                var vaccine = CreateVaccineAdapter.BuildToVaccine(request);
+
+                await VaccineRepository.CreateVaccine(vaccine);
+
+                return new CreateVaccineResponse
+                {
+                    Success = true,
+                    Message = "Vaccinne created successfully.",
+                    VaccineName = vaccine.VaccineName,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new CreateVaccineResponse
+                {
+                    Success = false,
+                    Message = $"An error occurred while creating vaccine: {ex.Message}"
+                };
+            }
         }
 
         #endregion

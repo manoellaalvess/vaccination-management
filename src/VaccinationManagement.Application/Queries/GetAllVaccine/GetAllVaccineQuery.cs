@@ -25,15 +25,31 @@ namespace VaccinationManagement.Application.Queries.GetAllVaccine
 
         public async Task<GetAllVaccineResponse> Handle(GetAllVaccineRequest request, CancellationToken cancellationToken)
         {
-            var vaccines = await VaccineRepository.GetAllAsync();
-
-            var result = vaccines.Select(v => new VaccineDto
+            try
             {
-                VaccineId = v.VaccineId,
-                VaccineName = v.VaccineName
-            }).ToList();
+                var vaccines = await VaccineRepository.GetAllAsync();
 
-            return new GetAllVaccineResponse { Vaccines = result };
+                var result = vaccines.Select(v => new VaccineDto
+                {
+                    VaccineId = v.VaccineId,
+                    VaccineName = v.VaccineName
+                }).ToList();
+
+                return new GetAllVaccineResponse 
+                {
+                    Success = true,
+                    Message = "Vaccines retrieved successfully.",
+                    Vaccines = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetAllVaccineResponse
+                {
+                    Success = false,
+                    Message = $"An error occurred while retrieving all vaccines: {ex.Message}"
+                };
+            }
         }
 
         #endregion
