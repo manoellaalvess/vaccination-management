@@ -24,12 +24,27 @@ namespace VaccinationManagement.Application.Command.DeletePerson
 
         public async Task<DeletePersonResponse> Handle(DeletePersonRequest request, CancellationToken cancellationToken)
         {
-            await PersonRepository.DeletePerson(request.Cpf);
-
-            return new DeletePersonResponse
+            try
             {
-                Cpf = request.Cpf
-            };
+                await PersonRepository.DeletePerson(request.Cpf);
+
+                return new DeletePersonResponse
+                {
+                    Success = true,
+                    Message = "Person deleted successfully.",
+                    Cpf = request.Cpf
+                };
+
+            }
+            catch (Exception ex)
+            {
+                return new DeletePersonResponse
+                {
+                    Success = false,
+                    Message = $"Error deleting person: {ex.Message}",
+                    Cpf = request.Cpf
+                };
+            }
         }
 
         #endregion

@@ -49,7 +49,7 @@ namespace VaccinationManagement.Api.Controllers
         {
             var response = await Mediator.Send(request);
 
-            return Ok(new { message = "Person created successfully.", data = response });
+            return Ok(new { data = response });
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace VaccinationManagement.Api.Controllers
 
             var response = await Mediator.Send(request);
 
-            return Ok(new { message = "Person removed successfully.", data = response });
+            return Ok(new { data = response });
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace VaccinationManagement.Api.Controllers
         {
             var response = await Mediator.Send(request, cancellationToken);
 
-            return Ok(new { message = response.People.Any() ? "People retrieved successfully." : "No person found.", data = response });
+            return Ok(new { data = response });
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace VaccinationManagement.Api.Controllers
 
             var response = await Mediator.Send(request, cancellationToken);
 
-            return Ok(new { message = "Person retrieved successfully.", data = response });
+            return Ok(new { data = response });
         }
 
         #endregion

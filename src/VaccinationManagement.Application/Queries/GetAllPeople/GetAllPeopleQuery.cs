@@ -23,23 +23,34 @@ namespace VaccinationManagement.Application.Queries.GetAllPeople
 
         public async Task<GetAllPeopleResponse> Handle(GetAllPeopleRequest request, CancellationToken cancellationToken)
         {
-            var people = await PersonRepository.GetAllAsync();
-
-            var result = people.Select(p => new PersonDto
+            try
             {
-                Cpf = p.Cpf,
-                Name = p.Name,
-                Vaccinations = p.Vaccinations?.Select(v => new VaccinationDto
-                {
-                    VaccinationId = v.VaccinationId,
-                    VaccineId = v.VaccineId,
-                    VaccineName = v.VaccineName,
-                    Dose = v.Dose,
-                    ApplicationDate = v.VaccinationDate.ToString("dd-MM-yyyy")
-                }).ToList() ?? new List<VaccinationDto>()
-            }).ToList();
+                var people = await PersonRepository.GetAllAsync();
 
-            return new GetAllPeopleResponse { People = result };
+                var result = people.Select(p => new PersonDto
+                {
+                    Cpf = p.Cpf,
+                    Name = p.Name,
+                    Vaccinations = p.Vaccinations?.Select(v => new VaccinationDto
+                    {
+                        VaccinationId = v.VaccinationId,
+                        VaccineId = v.VaccineId,
+                        VaccineName = v.VaccineName,
+                        Dose = v.Dose,
+                        ApplicationDate = v.VaccinationDate.ToString("dd-MM-yyyy")
+                    }).ToList() ?? new List<VaccinationDto>()
+                }).ToList();
+
+                return new GetAllPeopleResponse { People = result };
+            }
+            catch (Exception ex)
+            {
+                return new GetAllPeopleResponse
+                {
+                    Success = false,
+                    Message = $"An error occurred while retrieving people: {ex.Message}"
+                };
+            }
         }
     }
 }

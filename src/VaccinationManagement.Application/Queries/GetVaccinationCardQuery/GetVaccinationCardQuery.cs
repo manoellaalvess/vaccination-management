@@ -25,21 +25,32 @@ namespace VaccinationManagement.Application.Queries.GetVaccinationCard
 
         public async Task<GetVaccinationCardResponse> Handle(GetVaccinationCardRequest request, CancellationToken cancellationToken)
         {
-            var person = await PersonRepository.GetByCpfAsync(request.Cpf);
+            try
+            {
+                var person = await PersonRepository.GetByCpfAsync(request.Cpf);
 
-            if (person == null)
+                if (person == null)
+                {
+                    return new GetVaccinationCardResponse
+                    {
+                        Message = "Person not found.",
+                        Success = false,
+                        Person = new PersonDto()
+                    };
+                }
+
+                var result = GetVaccinationCardAdapter.Adapt(person);
+
+                return result;
+            }
+            catch (Exception ex)
             {
                 return new GetVaccinationCardResponse
                 {
-                    Message = "Person not found.",
                     Success = false,
-                    Person = new PersonDto()
+                    Message = $"An error occurred while retrieving vaccination card: {ex.Message}"
                 };
             }
-
-            var result = GetVaccinationCardAdapter.Adapt(person);
-
-            return result;
         }
 
         #endregion
