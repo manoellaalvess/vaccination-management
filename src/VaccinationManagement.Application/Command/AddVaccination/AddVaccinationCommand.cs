@@ -28,29 +28,42 @@ namespace VaccinationManagement.Application.Command.AddVaccination
 
         public async Task<AddVaccinationResponse> Handle(AddVaccinationRequest request, CancellationToken cancellationToken)
         {
-            // Person validation
-            var person = await PersonRepository.GetByCpfAsync(request.PersonCpf);
-            if (person == null)
-                return new AddVaccinationResponse { Success = false, Message = "Person not found" };
+            try
+            {
+                // Person validation
+                var person = await PersonRepository.GetByCpfAsync(request.PersonCpf);
+                if (person == null)
+                    return new AddVaccinationResponse { Success = false, Message = "Person not found" };
 
-            // Vaccine validation
-            var vaccine = await VaccineRepository.GetByVaccineId(request.VaccineId);
-            if (vaccine == null)
-                return new AddVaccinationResponse { Success = false, Message = "Vaccine not found" };
+                // Vaccine validation
+                var vaccine = await VaccineRepository.GetByVaccineId(request.VaccineId);
+                if (vaccine == null)
+                    return new AddVaccinationResponse { Success = false, Message = "Vaccine not found" };
 
-            // Dose validation
-            var vaccinations = person.Vaccinations.Where(v => v.VaccineId == request.VaccineId).ToList();
-            if (vaccinations.Any() && vaccinations.Any(v => v.Dose == request.Dose))
-                return new AddVaccinationResponse { Success = false, Message = "Dose already applied" };
+                // Dose validation
+                var vaccinations = person.Vaccinations.Where(v => v.VaccineId == request.VaccineId).ToList();
+                if (vaccinations.Any() && vaccinations.Any(v => v.Dose == request.Dose))
+                    return new AddVaccinationResponse { Success = false, Message = "Dose already applied" };
 
-            if (request.Dose != vaccinations.Count + 1)
-                return new AddVaccinationResponse { Success = false, Message = $"Invalid dose order, you should take the dose {vaccinations.Count + 1}" };
+                if (request.Dose != vaccinations.Count + 1)
+                    return new AddVaccinationResponse { Success = false, Message = $"Invalid dose order, you should take the dose {vaccinations.Count + 1}" };
 
-            var vaccination = AddVaccinationAdapter.BuildToVaccination(request, vaccine.VaccineName);
+                // Adapter
+                var vaccination = AddVaccinationAdapter.BuildToVaccination(request, vaccine.VaccineName);
 
-            await VaccinationRepository.AddVaccination(vaccination);
+                // Save
+                await VaccinationRepository.AddVaccination(vaccination);
 
-            return new AddVaccinationResponse { Success = true, Message = "Vaccination added successfully" };
+                return new AddVaccinationResponse { Success = true, Message = "Vaccination added successfully" };
+            }
+            catch (Exception ex)
+            {
+                return new AddVaccinationResponse
+                {
+                    Success = false,
+                    Message = $"An error occurred while adding the vaccination: {ex.Message}"
+                };
+            }
         }
 
         #endregion
