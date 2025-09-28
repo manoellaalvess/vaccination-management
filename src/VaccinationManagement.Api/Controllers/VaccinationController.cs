@@ -47,7 +47,7 @@ namespace VaccinationManagement.Api.Controllers
         {
             var response = await Mediator.Send(request, cancellationToken);
 
-            return Ok(new { message = $"Vaccination {response} created successfully.", data = response });
+            return Ok(new { message = "Ok", data = response });
         }
 
         #endregion

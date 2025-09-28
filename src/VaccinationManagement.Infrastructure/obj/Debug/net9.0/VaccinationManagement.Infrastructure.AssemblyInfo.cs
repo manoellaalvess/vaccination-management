@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VaccinationManagement.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7533f5e664e38b2bca0768f7962ee6198320611")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14a752c8e3becdc46975421bf4c8174ba2a96c08")]
 [assembly: System.Reflection.AssemblyProductAttribute("VaccinationManagement.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VaccinationManagement.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
