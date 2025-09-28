@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using VaccinationManagement.Domain.Entity;
 using VaccinationManagement.Domain.Repository;
 
@@ -32,8 +33,30 @@ namespace VaccinationManagement.Infrastructure.Repositories
 
             return;
         }
+        
+        public async Task<Vaccination> GetByIdAsync(int vaccinationId)
+        {
+            var vaccination = await Context.Vaccinations.FirstOrDefaultAsync(v => v.VaccinationId == vaccinationId);
+
+            return vaccination;
+        }
+
+        public async Task DeleteVaccinationAsync(int vaccinationId)
+        {
+            var vaccination = await GetByIdAsync(vaccinationId);
+
+            if (vaccination == null)
+            {
+                throw new ArgumentNullException(nameof(vaccination));
+            }
+
+            Context.Vaccinations.Remove(vaccination);
+            await Context.SaveChangesAsync();
+
+            return;
+        }
 
         #endregion
-        
+
     }
 }

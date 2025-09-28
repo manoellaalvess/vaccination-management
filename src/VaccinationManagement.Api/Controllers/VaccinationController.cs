@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using VaccinationManagement.Application.Command.AddVaccination;
+using VaccinationManagement.Application.Command.DeleteVaccination;
 
 namespace VaccinationManagement.Api.Controllers
 {
@@ -45,6 +46,27 @@ namespace VaccinationManagement.Api.Controllers
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         public async Task<IActionResult> CreateVaccination([FromBody] AddVaccinationRequest request, CancellationToken cancellationToken)
         {
+            var response = await Mediator.Send(request, cancellationToken);
+
+            return Ok(new { message = "Ok", data = response });
+        }
+
+        /// <summary>
+        /// Deletes a vaccination record
+        /// </summary>
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(DeleteVaccinationResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status406NotAcceptable)]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
+        public async Task<IActionResult> DeleteVaccination(int id, CancellationToken cancellationToken)
+        {
+            var request = new DeleteVaccinationRequest
+            {
+                Id = id
+            };
+            
             var response = await Mediator.Send(request, cancellationToken);
 
             return Ok(new { message = "Ok", data = response });

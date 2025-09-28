@@ -3,7 +3,7 @@ using MediatR;
 using VaccinationManagement.Application.Command.CreatePerson;
 using VaccinationManagement.Application.Command.DeletePerson;
 using VaccinationManagement.Application.Queries.GetAllPeople;
-using VaccinationManagement.Application.Queries.GetByCpf;
+using VaccinationManagement.Application.Queries.GetVaccinationCard;
 
 namespace VaccinationManagement.Api.Controllers
 {
@@ -92,14 +92,14 @@ namespace VaccinationManagement.Api.Controllers
         /// </summary>
         [HttpGet]
         [Route("{cpf}/vaccination-card")]
-        [ProducesResponseType(typeof(GetByCpfResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetVaccinationCardResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status406NotAcceptable)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
         public async Task<IActionResult> GetVaccinationCard(string cpf, CancellationToken cancellationToken)
         {
-            var request = new GetByCpfRequest { Cpf = cpf };
+            var request = new GetVaccinationCardRequest { Cpf = cpf };
 
             var response = await Mediator.Send(request, cancellationToken);
 
