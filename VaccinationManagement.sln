@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccinationManagement.Domai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccinationManagement.Infrastructure", "src\VaccinationManagement.Infrastructure\VaccinationManagement.Infrastructure.csproj", "{C8B255FF-58FC-49D9-8BAF-EB90F37C7631}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0C88DD14-F956-CE84-757C-A364CCF449FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{05A4E2C6-34EB-452A-C515-50BACA389F66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccinationManagement.UnitTests", "test\unit\VaccinationManagement.UnitTests\VaccinationManagement.UnitTests.csproj", "{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +91,18 @@ Global
 		{C8B255FF-58FC-49D9-8BAF-EB90F37C7631}.Release|x64.Build.0 = Release|Any CPU
 		{C8B255FF-58FC-49D9-8BAF-EB90F37C7631}.Release|x86.ActiveCfg = Release|Any CPU
 		{C8B255FF-58FC-49D9-8BAF-EB90F37C7631}.Release|x86.Build.0 = Release|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Debug|x64.Build.0 = Debug|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Debug|x86.Build.0 = Debug|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Release|x64.ActiveCfg = Release|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Release|x64.Build.0 = Release|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Release|x86.ActiveCfg = Release|Any CPU
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,5 +113,7 @@ Global
 		{74A5EB63-204D-4FF4-AFB9-1255F5EC7E5E} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{637401FF-3C86-4E26-91DE-AECB9E4BE222} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{C8B255FF-58FC-49D9-8BAF-EB90F37C7631} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{05A4E2C6-34EB-452A-C515-50BACA389F66} = {0C88DD14-F956-CE84-757C-A364CCF449FC}
+		{77038D49-ACCE-4EBD-AB94-E2E4FF17BACD} = {05A4E2C6-34EB-452A-C515-50BACA389F66}
 	EndGlobalSection
 EndGlobal
