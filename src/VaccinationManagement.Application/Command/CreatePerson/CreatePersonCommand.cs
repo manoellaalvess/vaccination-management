@@ -26,6 +26,16 @@ namespace VaccinationManagement.Application.Command.CreatePerson
         {
             try
             {
+                var existingPerson = await PersonRepository.GetByCpfAsync(request.Cpf);
+                if (existingPerson != null)
+                {
+                    return new CreatePersonResponse
+                    {
+                        Success = false,
+                        Message = "Person with the same CPF already exists."
+                    };
+                }
+
                 var person = CreatePersonAdapter.BuildToPerson(request);
 
                 await PersonRepository.CreatePerson(person);
