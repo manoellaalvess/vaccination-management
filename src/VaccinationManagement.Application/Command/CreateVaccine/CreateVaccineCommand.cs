@@ -33,7 +33,7 @@ namespace VaccinationManagement.Application.Command.CreateVaccine
                 return new CreateVaccineResponse
                 {
                     Success = true,
-                    Message = "Vaccinne created successfully.",
+                    Message = "Vaccine created successfully.",
                     VaccineName = vaccine.VaccineName,
                 };
             }
