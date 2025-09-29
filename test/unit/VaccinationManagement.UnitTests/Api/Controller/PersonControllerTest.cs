@@ -8,7 +8,6 @@ using VaccinationManagement.Application.Command.DeletePerson;
 using VaccinationManagement.Application.Queries.GetAllPeople;
 using VaccinationManagement.Application.Queries.GetVaccinationCard;
 using VaccinationManagement.Domain.DTO;
-using VaccinationManagement.Domain.Entity;
 
 namespace VaccinationManagement.UnitTests.Api.Controller
 {
