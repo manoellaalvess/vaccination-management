@@ -25,9 +25,15 @@ namespace VaccinationManagement.Application.Queries.GetAllPeople
         {
             try
             {
+                var response = new GetAllPeopleResponse
+                {
+                    Success = true,
+                    Message = "People retrieved successfully."
+                };
+
                 var people = await PersonRepository.GetAllAsync();
 
-                var result = people.Select(p => new PersonDto
+                response.People = people.Select(p => new PersonDto
                 {
                     Cpf = p.Cpf,
                     Name = p.Name,
@@ -41,7 +47,7 @@ namespace VaccinationManagement.Application.Queries.GetAllPeople
                     }).ToList() ?? new List<VaccinationDto>()
                 }).ToList();
 
-                return new GetAllPeopleResponse { People = result };
+                return response;
             }
             catch (Exception ex)
             {

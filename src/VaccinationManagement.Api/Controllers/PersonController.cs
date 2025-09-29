@@ -49,7 +49,7 @@ namespace VaccinationManagement.Api.Controllers
         {
             var response = await Mediator.Send(request);
 
-            return Ok(new { data = response });
+            return Ok(response);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace VaccinationManagement.Api.Controllers
 
             var response = await Mediator.Send(request);
 
-            return Ok(new { data = response });
+            return Ok(response);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace VaccinationManagement.Api.Controllers
         {
             var response = await Mediator.Send(request, cancellationToken);
 
-            return Ok(new { data = response });
+            return Ok(response);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace VaccinationManagement.Api.Controllers
 
             var response = await Mediator.Send(request, cancellationToken);
 
-            return Ok(new { data = response });
+            return Ok(response);
         }
 
         #endregion

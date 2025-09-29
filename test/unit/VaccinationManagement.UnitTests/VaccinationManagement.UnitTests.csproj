@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\VaccinationManagement.Application\VaccinationManagement.Application.csproj" />
     <ProjectReference Include="..\..\..\src\VaccinationManagement.Domain\VaccinationManagement.Domain.csproj" />
+    <ProjectReference Include="..\..\..\src\VaccinationManagement.Api\VaccinationManagement.Api.csproj" />
   </ItemGroup>
 
 </Project>
