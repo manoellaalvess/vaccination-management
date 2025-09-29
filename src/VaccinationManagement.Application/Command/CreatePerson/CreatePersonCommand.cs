@@ -44,7 +44,7 @@ namespace VaccinationManagement.Application.Command.CreatePerson
                 return new CreatePersonResponse
                 {
                     Success = false,
-                    Message = $"An error occurred while deleting the vaccination: {ex.Message}"
+                    Message = $"An error occurred while creating person: {ex.Message}"
                 };
             }
         }
