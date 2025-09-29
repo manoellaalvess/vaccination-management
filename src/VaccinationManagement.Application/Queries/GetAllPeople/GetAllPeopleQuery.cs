@@ -33,6 +33,13 @@ namespace VaccinationManagement.Application.Queries.GetAllPeople
 
                 var people = await PersonRepository.GetAllAsync();
 
+                if (people == null || !people.Any())
+                {
+                    response.Message = "No person found.";
+                    response.People = new List<PersonDto>();
+                    return response;
+                }
+
                 response.People = people.Select(p => new PersonDto
                 {
                     Cpf = p.Cpf,
