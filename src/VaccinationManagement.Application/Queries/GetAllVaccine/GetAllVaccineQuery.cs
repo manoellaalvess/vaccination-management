@@ -27,7 +27,18 @@ namespace VaccinationManagement.Application.Queries.GetAllVaccine
         {
             try
             {
+                var response = new GetAllVaccineResponse();
+
                 var vaccines = await VaccineRepository.GetAllAsync();
+
+                if (vaccines == null || !vaccines.Any())
+                {
+                    response.Message = "No vaccine found.";
+                    response.Success = true;
+                    response.Vaccines = new List<VaccineDto>();
+
+                    return response;
+                }
 
                 var result = vaccines.Select(v => new VaccineDto
                 {
